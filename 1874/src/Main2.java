@@ -29,6 +29,7 @@ public class Main2 {
 				sb.append("-").append("\n");
 			}else {
 				err = true;
+				break;
 			}
 		}
 		
