@@ -4,7 +4,7 @@ import java.io.*;
 public class Main5 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        PriorityQueue pq = new PriorityQueue<>();
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
         StringBuilder sb = new StringBuilder();
         int N = Integer.parseInt(br.readLine());
 
