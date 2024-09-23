@@ -24,5 +24,6 @@ public class Main5 {
             }
         }
         System.out.println(sb);
+        br.close();
     }
 }
