@@ -19,7 +19,7 @@ public class Main5 {
                     sb.append(pq.poll()).append("\n");
                 }
             }
-            else{
+            else if(num>0){
                 pq.add(num);
             }
         }
