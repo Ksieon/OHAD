@@ -28,5 +28,6 @@ public class Main8 {
             }
         }
         System.out.println(sb);
+        br.close();
     }
 }

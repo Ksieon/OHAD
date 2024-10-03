@@ -9,7 +9,7 @@ public class Main9 {
         st = new StringTokenizer(br.readLine(), " ");
         int numOfCard = Integer.parseInt(st.nextToken());
         int numOfAdd = Integer.parseInt(st.nextToken());
-        
+
         st = new StringTokenizer(br.readLine());
 
         for(int i=0; i<numOfCard; i++){
