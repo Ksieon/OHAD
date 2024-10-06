@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Main15 {
+public class myanswer {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         HashMap<String, Integer> map = new HashMap<>();
