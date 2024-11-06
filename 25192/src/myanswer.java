@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Main14 {
+public class myanswer {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
@@ -24,5 +24,6 @@ public class Main14 {
             }
         }
         System.out.println(count);
+        br.close();
     }
 }

@@ -4,7 +4,7 @@ import java.io.*;
 public class myanswer {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        HashMap<String, Integer> map = new HashMap<>();
+        HashMap<String, Integer> map = new HashMap<>(); // 
         int countTree = 0;
         while(true){
             String str = br.readLine();
@@ -20,9 +20,8 @@ public class myanswer {
             }
             countTree++;
         }
-        Set<String> keys = map.keySet();
-        ArrayList<String> keylist = new ArrayList<>(keys);
-        Collections.sort(keylist);
+        ArrayList<String> keylist = new ArrayList<>(map.keySet()); 
+        Collections.sort(keylist); 
         Iterator<String> it = keylist.iterator();
         StringBuilder sb = new StringBuilder();
         while(it.hasNext()){
