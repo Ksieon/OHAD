@@ -8,7 +8,7 @@ public class Main {
     static boolean[][] visited;
     static int[] dx = {-1, 1, 0, 0};
     static int[] dy = {0, 0, -1, 1};
-    static int BFS(int x, int y){
+    static int DFS(int x, int y){
         int count_House = 1;
         Queue<Point> queue = new LinkedList<>();
         queue.offer(new Point(x, y));
@@ -49,16 +49,16 @@ public class Main {
                 map[i][j] = Integer.parseInt(String.valueOf(str.charAt(j)));
             }
         }
-        int count_BFS = 0;
+        int count_DFS = 0;
         for(int i=0; i<N; i++){
             for(int j=0; j<N; j++){
                 if(map[i][j]==1 && !visited[i][j]){
-                    count_BFS++;
-                    pq.add(BFS(i, j));
+                    count_DFS++;
+                    pq.add(DFS(i, j));
                 }
             }
         }
-        System.out.println(count_BFS);
+        System.out.println(count_DFS);
         while(!pq.isEmpty()){
             sb.append(pq.poll()).append("\n");
         }
