@@ -18,6 +18,7 @@ public class Main {
         }
 
         int result = 0;
+        
         for(int i=0; i<=N; i++){
             result+=score[i];
             if((i+1)!=N && (i+2)!=N){

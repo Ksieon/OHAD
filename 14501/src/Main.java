@@ -34,7 +34,7 @@ public class Main {
             P[i] = Integer.parseInt(st.nextToken());
         }
 
-        DFS(1, 0); // DFS 시작
+        DFS(1, 0);
         System.out.println(answer);
     }
 }
