@@ -1,43 +1,27 @@
-import java.util.*;
 import java.io.*;
-
-public class Main {
-    static int N;
-    static int arr[]=new int[1001];
-    static int result_count = -1;
-    static int decrease_count(int[] arr){
-        for(int i=0; i<N; i++){
-            int count = 1;
-            int compare_num = arr[i];
-            for(int j=i; j<N-1; j++){
-                if(arr[i]>arr[j+1]){
-                    if(compare_num>arr[j+1]){
-                        count++;
-                        compare_num = arr[j+1];
-                    }
-                    else if(compare_num==arr[j+1]){
-                        continue;
-                    }
-                    else{
-                        compare_num = arr[j+1];
-                        continue;
-                    }
-                }
-                else{
-                    continue;
-                }
-            }
-            result_count = Math.max(count, result_count);
-        }
-        return result_count;
-    }
-    public static void main(String[] args) throws IOException {
+import java.util.*;
+public class Main{
+    public static void main(String[] args)throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        N = Integer.parseInt(br.readLine());
+        int N = Integer.parseInt(br.readLine());
+        int arr[] = new int[N];
+        int dp[] = new int[N];
+        int result = 0;
+        
         StringTokenizer st = new StringTokenizer(br.readLine());
         for(int i=0; i<N; i++){
-            arr[i] = Integer.parseInt(st.nextToken());
+            arr[i]= Integer.parseInt(st.nextToken());
         }
-        System.out.println(decrease_count(arr));
+        
+        for(int i=0; i<N; i++){
+            dp[i] = 1;
+            for(int j=0; j<i; j++){
+                if(arr[i]<arr[j]){
+                    dp[i] = Math.max(dp[i], dp[j]+1);
+                }
+            }
+            result = Math.max(dp[i], result);
+        }
+        System.out.println(result);
     }
 }
