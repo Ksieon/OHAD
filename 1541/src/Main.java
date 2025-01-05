@@ -9,13 +9,16 @@ public class Main {
 
         int total_sum = 0;
         boolean IsFirstToken = true;
+        //-를 기준으로 문자열 나누어서 토큰에 저장
         while(st.hasMoreTokens()){
+            //+를 기준으로 숫자들 나누어서 sum에 더하기
+            int sum=0;
             String str = st.nextToken();
             st_plus = new StringTokenizer(str, "+");
-            int sum=0;
             while(st_plus.hasMoreTokens()){
                 sum+=Integer.parseInt(st_plus.nextToken());
             }
+            //첫 토큰이라면 total_sum에 더하기, 아니라면 전부 빼기
             if(IsFirstToken){
                 total_sum+=sum;
                 IsFirstToken = false;
