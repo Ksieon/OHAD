@@ -2,33 +2,32 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-import java.util.ArrayList;
-import java.util.Collections;
 
 public class Main {
-    static int N, M, max;
+    static int N, M, max = Integer.MIN_VALUE;
     static int[] tree;
     static StringTokenizer st;
 
-    static int Cutting(int[] trees) {
-        int max_height = max;
-        int min_height = 0;
-        int middle_value = (max_height + min_height) / 2;
-        int result_length = 0;
-        while (min_height <= max_height) {
-            for (int tree_length : trees) {
-                if (tree_length - middle_value > 0)
-                    result_length += tree_length - middle_value;
-            }
-            if (result_length < M) {
-                max_height = middle_value - 1;
-            } else {
-                min_height = middle_value + 1;
-            }
-            middle_value = (max_height + min_height) / 2;
-            result_length = 0;
+    static boolean Check(int _mid) {
+        long result_length = 0;
+        for (int tree_length : tree) {
+            if (tree_length - _mid > 0)
+                result_length += tree_length - _mid;
         }
-        return middle_value;
+    }
+
+    static int Cutting(int[] tree) {
+        int hi = max;
+        int lo = 0;
+        while (lo + 1 < hi) { // [lo, hi]
+            int mid = (hi + lo) / 2;
+            if (Check(mid)) {
+                lo = mid;
+            } else {
+                hi = mid;
+            }
+        }
+        return lo;
     }
 
     public static void main(String[] args) throws IOException {
