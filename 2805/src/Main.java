@@ -14,6 +14,7 @@ public class Main {
             if (tree_length - _mid > 0)
                 result_length += tree_length - _mid;
         }
+        return result_length>=M;
     }
 
     static int Cutting(int[] tree) {
@@ -27,7 +28,7 @@ public class Main {
                 hi = mid;
             }
         }
-        return lo;
+        return Check(hi) ? hi : lo;
     }
 
     public static void main(String[] args) throws IOException {
