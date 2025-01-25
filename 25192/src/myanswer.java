@@ -9,15 +9,14 @@ public class myanswer {
         boolean enterCheck = false;
         int count = 0;
         HashMap<String, Integer> map = new HashMap<>();
-        while(N-->0){
+        while (N-- > 0) {
             str = br.readLine();
-            if(str.equals("ENTER")){
+            if (str.equals("ENTER")) {
                 map = new HashMap<>();
                 enterCheck = true;
-            }
-            else if(enterCheck==true){
+            } else if (enterCheck == true) {
                 boolean nameCheck = map.containsKey(str);
-                if(!nameCheck){
+                if (!nameCheck) {
                     map.put(str, 0);
                     count++;
                 }
