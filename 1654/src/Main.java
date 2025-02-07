@@ -5,22 +5,22 @@ import java.util.StringTokenizer;
 
 public class Main {
     static int K, N;
-    static int max = Integer.MIN_VALUE;
-    static int lancable[];
+    static long max = Long.MIN_VALUE;
+    static long lancable[];
 
-    static boolean Check(int mid) {
+    static boolean Check(long mid) {
         long result_cable_num = 0;
-        for (int cable : lancable) {
+        for (long cable : lancable) {
             result_cable_num += cable / mid;
         }
         return result_cable_num >= N;
     }
 
-    static long cut_cable(int[] lancable) {
-        int lo = 1;
-        int hi = max;
+    static long cut_cable(long[] lancable) {
+        long lo = 1;
+        long hi = max;
         while (lo + 1 < hi) {
-            int mid = (lo + hi) / 2;
+            long mid = (lo + hi) / 2;
             if (Check(mid)) {
                 lo = mid;
             } else {
@@ -37,7 +37,7 @@ public class Main {
         K = Integer.parseInt(st.nextToken());
         N = Integer.parseInt(st.nextToken());
 
-        lancable = new int[K];
+        lancable = new long[K];
         for (int i = 0; i < K; i++) {
             lancable[i] = Integer.parseInt(br.readLine());
             max = Math.max(max, lancable[i]);
