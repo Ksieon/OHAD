@@ -3,23 +3,17 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 import java.util.StringTokenizer;
 public class Main {
     static int N, M;
     static List<Integer>[] graph;
     static boolean[] visited;
     static int count = 0;
-    static Stack<Integer> stack = new Stack<>();
-    static void DFS(int x){
-        stack.push(x);
-        while(!stack.isEmpty()){
-            int node = stack.pop();
-            visited[node] = true;
-            for(int next : graph[node]){
-                if(!visited[next]){
-                    DFS(next);
-                }
+    static void DFS(int node){
+        visited[node] = true;
+        for(int next : graph[node]){
+            if(!visited[next]){
+                DFS(next);
             }
         }
     }
@@ -43,6 +37,7 @@ public class Main {
             int v = Integer.parseInt(st.nextToken());
 
             graph[u].add(v);
+            graph[v].add(u);
         }
         visited = new boolean[N+1];
         for(int i=1; i<=N; i++){

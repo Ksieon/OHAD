@@ -1,7 +1,6 @@
-import java.util.*;
-import java.util.Queue;
+import java.awt.*;
 import java.io.*;
-import java.awt.*; // ★
+import java.util.*;
 
 class Main{
     static int N;
