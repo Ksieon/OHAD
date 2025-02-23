@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
+
         int K = Integer.parseInt(br.readLine());
 
         int size = 1;
@@ -13,18 +13,23 @@ public class Main {
             size*=2;
             multiplier++;
         }
-        sb.append(size).append(" ");
+        //256 128 64 32 16 8 4(44-32)
         int cut = 0;
         if(K%2!=0){
             cut+=multiplier;
         } else {
-            int purposePiece = size - K;
-            while(size!=purposePiece && purposePiece!=0){
-                size/=2;
-                cut++;
+            if(size-K!=0){
+                int purposePiece = size-K;
+                int piece = size;
+                while(purposePiece!=0){
+                    cut++;
+                    piece/=2;
+                    if(purposePiece>=piece){
+                        purposePiece-=piece;
+                    }
+                }
             }
         }
-        sb.append(cut);
-        System.out.println(sb.toString());
+        System.out.println(size + " " + cut);
     }
 }
