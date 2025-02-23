@@ -1,27 +1,30 @@
-import java.io.*;
-
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         int K = Integer.parseInt(br.readLine());
 
-        int min_ch = 1;
-        int count = 0;
-        while(min_ch<K){
-            min_ch*=2;
+        int size = 1;
+        int multiplier = 0;
+        while(size<K){
+            size*=2;
+            multiplier++;
         }
-        sb.append(min_ch).append(" ");
-        while(K>0){
-            if(K>=min_ch){
-                K-=min_ch;
-            }
-            else{
-                min_ch/=2;
-                count++;
+        sb.append(size).append(" ");
+        int cut = 0;
+        if(K%2!=0){
+            cut+=multiplier;
+        } else {
+            int purposePiece = size - K;
+            while(size!=purposePiece && purposePiece!=0){
+                size/=2;
+                cut++;
             }
         }
-        sb.append(count);
+        sb.append(cut);
         System.out.println(sb.toString());
     }
 }
