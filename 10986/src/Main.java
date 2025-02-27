@@ -20,11 +20,7 @@ public class Main {
         }
 
         for(int i=1; i<=N; i++){
-            for(int j=i; j<=N; j++){
-                if((A[j]-A[i-1])%M==0){
-                    count++;
-                }
-            }
+            
         }
         System.out.println(count);
     }
